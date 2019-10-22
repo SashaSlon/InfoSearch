@@ -1,14 +1,22 @@
 <html>
  <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>Results</title>
+  <title>Результаты</title>
  </head>
  <body>
- <h1>Results for your request</h1>
- <p>You chose the {{ searchlang }} language, and gesture number {{ searchgest }}.</p><br><br>
- <h1>Results</h1>
- {% for a in gests %}
- <p>{{ a }}</p>
- {% endfor %}
+ <h1>Результаты поиска: </h1>
+ <br><br>
+ <h1>Ваш запрос: {{ query }}, метод индексации: {{ method }}</h1>
+ <br><br>
+
+    <table border="1">
+   <tr>
+    <th>Ответ №</th><th>Текст</th><th>Коэффициент</th>
+   </tr>
+    {% for el in result %}
+    <tr><td>{{ el }}</td><td>{{ result[el][1] }}</td><td>{{ result[el][0] }}</td></tr>
+	{% endfor %}
+  </table>
+  <br><br>
   </body>
 </html>
